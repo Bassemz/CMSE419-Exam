@@ -232,19 +232,7 @@ try{
         }
 
 // b- Adding to Database:
-       MyDB myDBHandler = new MyDB(this);
-
-        Cursor DBCursor = myDBHandler.getStudents();
-        
-        while(DBCursor.moveToNext()){
-                studentsArrayList.add(DBCursor.getInt(0) + " " +DBCursor.getInt(1) + " " + DBCursor.getInt(2) + " " +DBCursor.getInt(3));
-        }
+        DBHandler.AddStu(studentNo, midterm1, midterm2, finalGr);
 
 // c- Deleting from Database:
-       MyDB myDBHandler = new MyDB(this);
-
-        Cursor DBCursor = myDBHandler.getStudents();
-        
-        while(DBCursor.moveToNext()){
-                studentsArrayList.add(DBCursor.getInt(0) + " " +DBCursor.getInt(1) + " " + DBCursor.getInt(2) + " " +DBCursor.getInt(3));
-        }
+        DBHandler.AddStu(studentNo, midterm1, midterm2, finalGr);
