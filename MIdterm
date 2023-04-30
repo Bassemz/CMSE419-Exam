@@ -153,3 +153,53 @@ Finish();
 //removing nav bar
 // res -> values -> themes -> themes.xml ->inside <style> replace parent with:
 parent="Theme.MaterialComponents.DayNight.NoActionBar"
+
+
+// File System (fs)
+// Writing to a file (Method 1)
+        try {
+            FileOutputStream fos=openFileOutput(filename, Context.MODE_PRIVATE);
+            String text=et1.getText().toString()+" "+et2.getText().toString()+" "+et3.getText().toString()+" "; 
+            fos.write(text.getBytes());
+            fos.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }    
+
+// Writing to a file (Method 2) ----- BEST
+try { 
+FileOutputStream fos = openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
+fos.write(someText.toString().getBytes()); 
+fos.close(); 
+} catch (IOException e) { 
+    e.printStackTrace(); 
+}
+
+//Reading to a file (Method 1)
+    try {
+            String text="";
+            FileInputStream fis=openFileInput(filename);
+            int size=fis.available();
+            byte[] buffer=new byte[size];
+            fis.read(buffer);
+            fis.close();
+            text=new String(buffer);
+            contents = new ArrayList<String>(Arrays.asList(text.split(" ")));
+            Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+            intent.putExtra("array_list", contents);
+            startActivity(intent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//Reading to a file (Method 2) ---- BEST
+try { 
+    FileOutputStream file = openFileOutput("Data.txt", MODE_PRIVATE); 
+    OutputStreamWriter outputStreamWriter = new OutputStreamWriter(file); 
+    outputStreamWriter.write(et1.getText().toString()+" "+et2.getText().toString()+”\n”);
+    outputStreamWriter.flush(); 
+    outputStreamWriter.close(); 
+} catch (IOException e){ 
+    Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG) .show(); 
+}
+
