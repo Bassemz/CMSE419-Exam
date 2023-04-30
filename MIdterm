@@ -172,7 +172,7 @@ try {
             FileOutputStream fos = openFileOutput(fileName, Context.MODE_PRIVATE);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
             for(int i =0;i<studentArrayList.size();i++){
-                osw.write(arr.get(i).toString()+"\n");
+                osw.write(arr.get(i).toString()+"\n");  //ADD newline at the end!!!!!!!! important ok???
             }
             osw.flush();
             osw.close();
@@ -180,7 +180,7 @@ try {
             e.printStackTrace();
         }
 
-//Reading to a file (Method 1)
+//Reading from a file (Method 1)
     try {
             String text="";
             FileInputStream fis=openFileInput(filename);
@@ -196,7 +196,7 @@ try {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//Reading to a file (Method 2) ---- BEST
+//Reading from a file (Method 2) ---- BEST
 try{
             InputStreamReader isr = new InputStreamReader(openFileInput(fileName));
             BufferedReader reader = new BufferedReader(isr);
