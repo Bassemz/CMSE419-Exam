@@ -168,13 +168,17 @@ parent="Theme.MaterialComponents.DayNight.NoActionBar"
         }    
 
 // Writing to a file (Method 2) ----- BEST
-try { 
-FileOutputStream fos = openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
-fos.write(someText.toString().getBytes()); 
-fos.close(); 
-} catch (IOException e) { 
-    e.printStackTrace(); 
-}
+try {
+            FileOutputStream fos = openFileOutput(fileName, Context.MODE_PRIVATE);
+            OutputStreamWriter osw = new OutputStreamWriter(fos);
+            for(int i =0;i<studentArrayList.size();i++){
+                osw.write(arr.get(i).toString()+"\n");
+            }
+            osw.flush();
+            osw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 //Reading to a file (Method 1)
     try {
@@ -193,13 +197,23 @@ fos.close();
             e.printStackTrace();
         }
 //Reading to a file (Method 2) ---- BEST
-try { 
-    FileOutputStream file = openFileOutput("Data.txt", MODE_PRIVATE); 
-    OutputStreamWriter outputStreamWriter = new OutputStreamWriter(file); 
-    outputStreamWriter.write(et1.getText().toString()+" "+et2.getText().toString()+”\n”);
-    outputStreamWriter.flush(); 
-    outputStreamWriter.close(); 
-} catch (IOException e){ 
-    Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG) .show(); 
-}
+try{
+            InputStreamReader isr = new InputStreamReader(openFileInput(fileName));
+            BufferedReader reader = new BufferedReader(isr);
+            String LineFromFile="";
+            while((LineFromFile = reader.readLine())!= null){
+                StringTokenizer tokenizer = new StringTokenizer(LineFromFile, " ");
+                String name = tokenizer.nextToken();
+                String surname = tokenizer.nextToken();
+                String studentNo = tokenizer.nextToken();
+                String program = tokenizer.nextToken();
+                Student student = new Student(Integer.parseInt(studentNo), name, surname, program);
+                studentArrayList.add(student);
 
+
+            }
+            reader.close();
+        } catch (IOException e) {
+            Toast.makeText(this, "Input output filesystem exception", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
