@@ -218,3 +218,33 @@ try{
             e.printStackTrace();
         }
 
+
+// Database
+// 1-Add the MyDB.java file to the project and modify it according to DB design 
+// 2-Usage: 
+// a- Reading from Database
+       MyDB myDBHandler = new MyDB(this);
+
+        Cursor DBCursor = myDBHandler.getStudents();
+        
+        while(DBCursor.moveToNext()){
+                studentsArrayList.add(DBCursor.getInt(0) + " " +DBCursor.getInt(1) + " " + DBCursor.getInt(2) + " " +DBCursor.getInt(3));
+        }
+
+// b- Adding to Database:
+       MyDB myDBHandler = new MyDB(this);
+
+        Cursor DBCursor = myDBHandler.getStudents();
+        
+        while(DBCursor.moveToNext()){
+                studentsArrayList.add(DBCursor.getInt(0) + " " +DBCursor.getInt(1) + " " + DBCursor.getInt(2) + " " +DBCursor.getInt(3));
+        }
+
+// c- Deleting from Database:
+       MyDB myDBHandler = new MyDB(this);
+
+        Cursor DBCursor = myDBHandler.getStudents();
+        
+        while(DBCursor.moveToNext()){
+                studentsArrayList.add(DBCursor.getInt(0) + " " +DBCursor.getInt(1) + " " + DBCursor.getInt(2) + " " +DBCursor.getInt(3));
+        }
