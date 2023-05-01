@@ -159,6 +159,19 @@ parent="Theme.MaterialComponents.DayNight.NoActionBar"
 
 
 //dynamic component rendering 
+// to define any UI component programatically 
+Componentclass componentName = new Componentclass(ActivityName.this^); //^this
+
+//helper functions
+parentViewName.setGravity(1); //sets gravity  to center
+componentName.setEms(5); //sets the width of textview to 5 
+componentName.setHint(hint); //sets hint
+componentName.setTextSize(30);
+// after setting the component, have to insert in a view
+parentViewName.addView(componentName); // Add the EditText view to  -- must do 
+//delete component from a parent view
+ll.removeViews(0, number_courses + 3); // strat index, end index (not included)
+
 
 
 
@@ -186,7 +199,7 @@ try {
             osw.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }
 
 //Reading from a file (Method 1)
     try {
@@ -224,7 +237,7 @@ try{
         } catch (IOException e) {
             Toast.makeText(this, "Input output filesystem exception", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
-        }
+        }
 
 
 // Database
