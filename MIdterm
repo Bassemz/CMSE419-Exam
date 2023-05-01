@@ -179,7 +179,7 @@ ll.removeViews(0, number_courses + 3); // strat index, end index (not included)
 // File System (fs)
 // Writing to a file (Method 1)
         try {
-            FileOutputStream fos=openFileOutput(filename, Context.MODE_PRIVATE);
+            FileOutputStream fos=openFileOutput(filename, Context.MODE_PRIVATE^); //^MODE_APPEND for appending new records
             String text=et1.getText().toString()+" "+et2.getText().toString()+" "+et3.getText().toString()+" "; 
             fos.write(text.getBytes());
             fos.close();
