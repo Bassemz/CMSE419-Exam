@@ -158,6 +158,11 @@ iw1.setImageResource(resources[i]^);//^R.drawable.imageName
 parent="Theme.MaterialComponents.DayNight.NoActionBar"
 
 
+//dynamic component rendering 
+
+
+
+
 // File System (fs)
 // Writing to a file (Method 1)
         try {
