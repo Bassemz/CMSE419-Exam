@@ -39,7 +39,7 @@ toString()
         bt_4.setOnClickListener(this);
 	redefine on click function outside the onCreate function:
 public void onClick(View buttons) {
-//determine which button is clicked and what to do in each case
+//determine which button/Radio buttons is clicked and what to do in each case
         switch(buttons.getId()){
 
             case R.id.button: do something;
