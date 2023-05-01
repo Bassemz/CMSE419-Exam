@@ -148,8 +148,11 @@ public void onClick(View buttons) {
 Finish();
 
 //inserting images
-// res -> drawable -> put all image files -> drag drop imageView -> select the specific image
-// 
+// res -> drawable -> put all image  (resource manager) -> drag drop imageView -> select the specific  ->java file
+final int resources[]= {R.drawable.imageName, R.drawabl.imageName2};
+// for displaying teh image in the image view
+iw1.setImageResource(resources[i]^);//^R.drawable.imageName
+
 //removing nav bar
 // res -> values -> themes -> themes.xml ->inside <style> replace parent with:
 parent="Theme.MaterialComponents.DayNight.NoActionBar"
