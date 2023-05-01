@@ -93,12 +93,12 @@ public void onClick(View buttons) {
                     }
                 }	
 //Create Radio button group:
-	Locate radio group component: rg=findViewById(R.id.radioGroup);
+	Locate radio group component: rg=findViewById(R.id.radioGroup); 
 	rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int i) { //i is the id of button clicked
 
-                switch(checkedId){
+                switch(i){
                     case R.id.radioButton7:
                         Toast.makeText(MainActivity.this, "Yes Selected", Toast.LENGTH_SHORT).show();
                         break;
