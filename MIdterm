@@ -30,6 +30,11 @@ set(index, value)
 size() //instead of .length
 toString()
 
+
+//interacting with UI components
+//whenever you want to get or set something for a UI component, first use findViewbyId() 
+//to get the view object of the component then use get and set methods (i.e. setChecked/setText/getText..etc)
+
 //Multiple button listener: 
 	add “ implements View.OnClickListener” to the head of the class
 	set your buttons all to the same function:
