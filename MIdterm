@@ -263,4 +263,4 @@ MyDB DBHandler = new MyDB(this);
         DBHandler.AddStu(studentNo, midterm1, midterm2, finalGr);
 
 // c- Deleting from Database:
-        DBHandler.AddStu(studentNo, midterm1, midterm2, finalGr);
+        DBHandler.deleteStudent(studentNo);
