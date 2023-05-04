@@ -164,6 +164,7 @@ parent="Theme.MaterialComponents.DayNight.NoActionBar"
 
 
 //dynamic component rendering 
+// step 1: Have a Container inside the design layout file (xml) and retrieve the view of it before.
 // to define any UI component programatically 
 Componentclass componentName = new Componentclass(ActivityName.this^); //^this
 
