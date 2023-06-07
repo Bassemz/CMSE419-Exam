@@ -265,3 +265,74 @@ MyDB DBHandler = new MyDB(this);
 
 // c- Deleting from Database:
         DBHandler.deleteStudent(studentNo);
+
+// options menu
+// res folder -> create new Android Resource Directory -> inside it create new Menu Resource File (xml)
+// drag and drop menu and menu items to the newly created file and add IDs 
+// in mainActivity (under onCreate)
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //menu construtor
+
+        MenuInflater inflate = getMenuInflater();
+
+        inflate.inflate(R.menu.optionsmenu, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == R.id.id_item1){
+                Toast.makeText(this, "yo", Toast.LENGTH_SHORT).show();
+                return true;} 
+        //if-else-if-else
+        else return super.onOptionsItemSelected(item);
+        }
+
+//pop up menu
+// res folder -> create new Android Resource Directory -> inside it create new Menu Resource File (xml)
+// drag and drop menu and menu items to the newly created file and add IDs 
+// in mainActivity (inside onCreate)
+    PopupMenu popup = new PopupMenu(MainActivity.this, componentName); //componentName is the component to which you are creating popup menu
+    popup.getMenuInflater().inflate(R.menu.popupmenu, popup.getMenu());
+
+    //listener for popup menu
+
+    popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+        @Override
+        public boolean onMenuItemClick(MenuItem menuItem) {
+
+            Toast.makeText(MainActivity.this, "clicked", Toast.LENGTH_SHORT).show();
+            return false;
+        } 
+    });
+    popup.show(); // to show the menu
+
+//context menu
+// res folder -> create new Android Resource Directory -> inside it create new Menu Resource File (xml)
+// drag and drop menu and menu items to the newly created file and add IDs 
+// in the XML of mainactivity add the element to which you want to do context menu
+// in mainActivity (under onCreate)
+public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        MenuInflater inflater = getMenuInflater();
+
+        inflater.inflate(R.menu.mymenu, menu);
+
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.it1){
+            Toast.makeText(this, "call", Toast.LENGTH_SHORT).show();
+            return true;
+        }else if (item.getItemId() == R.id.it2)
+        {Toast.makeText(this, "text", Toast.LENGTH_SHORT).show();
+                   return true;}
+        return super.onContextItemSelected(item);
+    }
+
+
