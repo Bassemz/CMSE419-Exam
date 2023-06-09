@@ -292,6 +292,7 @@ MyDB DBHandler = new MyDB(this);
         }
 
 //pop up menu
+//go to themes.xml and remove noActionBar
 // res folder -> create new Android Resource Directory -> inside it create new Menu Resource File (xml)
 // drag and drop menu and menu items to the newly created file and add IDs 
 // in mainActivity (inside onCreate)
@@ -334,5 +335,84 @@ public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMen
                    return true;}
         return super.onContextItemSelected(item);
     }
+
+
+// fragments
+// in main xml, remove contraint layout and add a vertical linear layout
+// add tablayout from "Containers" and inside it add as many TabItems as the fragments
+// add a framelayout under tablayout
+// create a separate activity for each fragment and add the following code in each fragment's java file 
+public class firstFragment extends Fragment { //extends Fragment
+    public firstFragment() { //create it by right clicking -> generate
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //setContentView(R.layout.activity_first_fragment);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //return super.onCreateView(inflater, container, savedInstanceState);
+
+        return inflater.inflate(R.layout.activity_first_fragment* , container, false); *//name of the xml file of the fragment
+    }
+}
+// in main activity:
+Fragment fragments = null;
+fragments = new firstFragment();
+FragmentManager fManager = getSupportFragmentManager();
+
+// to control "transactions" which are the activites in the fragments
+FragmentTransaction fTransaction = fManager.beginTransaction();
+
+// replacing the framelayout view with the fragment object we created in switch()
+fTransaction.replace(R.id.fr, fragments);
+//remove fragment after usage
+fTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+//close
+fTransaction.commit();
+//listener for tablayout
+tl_tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+@Override
+public void onTabSelected(TabLayout.Tab tab) {
+    int pos = tab.getPosition();
+    switch (pos){
+        case 0:
+            fragments = new firstFragment();
+            break;//constructor of first fragment
+        case 1:
+            fragments = new secondFragment();
+            break;
+
+    }
+
+
+    // a manager for controlling fragmant's content
+    FragmentManager fManager = getSupportFragmentManager();
+
+    // to control "transactions" which are the activites in the fragments
+    FragmentTransaction fTransaction = fManager.beginTransaction();
+
+    // replacing the framelayout view with the fragment object we created in switch()
+    fTransaction.replace(R.id.fr, fragments);
+    //remove fragment after usage
+    fTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+    //close
+    fTransaction.commit();
+}
+
+@Override
+public void onTabUnselected(TabLayout.Tab tab) {
+
+}
+
+@Override
+public void onTabReselected(TabLayout.Tab tab) {
+
+}
+});
 
 
