@@ -338,6 +338,13 @@ MyDB DBHandler = new MyDB(this);
 // drag and drop menu and menu items to the newly created file and add IDs 
 // in the XML of mainactivity add the element to which you want to do context menu
 // in mainActivity (under onCreate)
+
+// Initially, Create a ListView and link it with findViewById() function
+// Then, inside the onCreate(Bundle savedInstanceState) function, add the following:
+    registerForContextMenu(lv)
+// Where lv is the ListView linked
+
+// Now you can add the following functions:
 public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
 
