@@ -271,6 +271,7 @@ MyDB DBHandler = new MyDB(this);
         DBHandler.deleteStudent(studentNo);
 
 // options menu
+// go to themes.xml and remove noActionBar
 // res folder -> create new Android Resource Directory -> inside it create new Menu Resource File (xml) or create the resource file directly
 // drag and drop menu and menu items to the newly created file and add IDs 
 // in mainActivity (under onCreate)
@@ -314,7 +315,6 @@ MyDB DBHandler = new MyDB(this);
     }
 
 //pop up menu
-//go to themes.xml and remove noActionBar
 // res folder -> create new Android Resource Directory -> inside it create new Menu Resource File (xml)
 // drag and drop menu and menu items to the newly created file and add IDs 
 // in mainActivity (inside onCreate)
@@ -333,7 +333,59 @@ MyDB DBHandler = new MyDB(this);
     });
     popup.show(); // to show the menu
 
-//context menu
+// Examples of pop up menu:
+// Putting popup menu when an item is clicked in a ListView
+
+    lv_context_menu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(MainActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
+                PopupMenu popupMenu = new PopupMenu(MainActivity.this, view);
+                popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        return false;
+                    }
+                });
+
+                popupMenu.show();
+            }
+        });
+
+// Putting a popup when a button is clicked:
+    btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupMenu = new PopupMenu(MainActivity.this, btn_add);
+                MenuInflater menuInflater3 = popupMenu.getMenuInflater();
+                menuInflater3.inflate(R.menu.popupmenu, popupMenu.getMenu());
+                popupMenu.show();
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()){
+                            case R.id.popup1:
+                                Toast.makeText(MainActivity.this, "Popup 1", Toast.LENGTH_SHORT).show();
+                                return true;
+                            case R.id.popup2:
+                                Toast.makeText(MainActivity.this, "Popup 2", Toast.LENGTH_SHORT).show();
+                                return true;
+                            case R.id.popup3:
+                                Toast.makeText(MainActivity.this, "Popup 3", Toast.LENGTH_SHORT).show();
+                                return true;
+                            default:
+                                return false;
+                        }
+                    }
+                });
+
+            }
+        })
+
+// Context menu
 // res folder -> create new Android Resource Directory -> inside it create new Menu Resource File (xml)
 // drag and drop menu and menu items to the newly created file and add IDs 
 // in the XML of mainactivity add the element to which you want to do context menu
