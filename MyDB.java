@@ -20,7 +20,7 @@ public class MyDB extends SQLiteOpenHelper {
     private static final String MID_II="mid2";
     private static final String FINAL="final";
 
-    private static final String CREATE_TABLE = String.format("CREATE TABLE %s (%s int NOT NULL PRIMARY KEY AUTOINCREMENT, %s int, %s int, %s int);", DBTableName, STU_Number, MID_I, MID_II, FINAL);
+    private static final String CREATE_TABLE = String.format("CREATE TABLE %s (%s INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, %s INTEGER, %s INTEGER, %s TEXT);", DBTableName, STU_Number, MID_I, MID_II, FINAL);
 
     private static final String DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", DBTableName);
 
