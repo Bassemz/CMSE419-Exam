@@ -162,6 +162,10 @@ iw1.setImageResource(resources[i]^);//^R.drawable.imageName
 // res -> values -> themes -> themes.xml ->inside <style> replace parent with:
 parent="Theme.MaterialComponents.DayNight.NoActionBar"
 
+// Adding nav bar
+// res -> values -> themes -> themes.xml -> inside <style> replace parent with:
+parent="Theme.MaterialComponents.DayNight.DarkActionBar"
+
 
 //dynamic component rendering 
 // step 1: Have a Container inside the design layout file (xml) and retrieve the view of it before.
