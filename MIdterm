@@ -288,13 +288,15 @@ MyDB DBHandler = new MyDB(this);
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
+        // Way 1
         if (item.getItemId() == R.id.id_item1){
                 Toast.makeText(this, "yo", Toast.LENGTH_SHORT).show();
-                return true;} 
+                return true; 
+            } 
         //if-else-if-else
         else return super.onOptionsItemSelected(item);
-        }
-        //or using switch...
+
+        // Way 2
         switch (item.getItemId()){
 
             case R.id.id_item1:
@@ -309,6 +311,7 @@ MyDB DBHandler = new MyDB(this);
                 return true;
             default: return super.onOptionsItemSelected(item);
         }
+    }
 
 //pop up menu
 //go to themes.xml and remove noActionBar
