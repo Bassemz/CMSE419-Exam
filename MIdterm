@@ -267,7 +267,7 @@ MyDB DBHandler = new MyDB(this);
         DBHandler.deleteStudent(studentNo);
 
 // options menu
-// res folder -> create new Android Resource Directory -> inside it create new Menu Resource File (xml)
+// res folder -> create new Android Resource Directory -> inside it create new Menu Resource File (xml) or create the resource file directly
 // drag and drop menu and menu items to the newly created file and add IDs 
 // in mainActivity (under onCreate)
     @Override
@@ -289,6 +289,21 @@ MyDB DBHandler = new MyDB(this);
                 return true;} 
         //if-else-if-else
         else return super.onOptionsItemSelected(item);
+        }
+        //or using switch...
+        switch (item.getItemId()){
+
+            case R.id.id_item1:
+                Toast.makeText(this, "Item 1 Selected About", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.id_item2:
+
+                Toast.makeText(this, "Item 2 selected", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.id_submenu1:
+                Toast.makeText(this, "SubMenu", Toast.LENGTH_SHORT).show();
+                return true;
+            default: return super.onOptionsItemSelected(item);
         }
 
 //pop up menu
@@ -338,7 +353,8 @@ public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMen
 
 
 // fragments
-// in main xml, remove contraint layout and add a vertical linear layout
+// in main xml, remove contraint layout and add a *orientation="vertical"* linear layout
+//tab layout should be at the top of the screen like an action bar so action bar should be removed
 // add tablayout from "Containers" and inside it add as many TabItems as the fragments
 // add a framelayout under tablayout
 // create a separate activity for each fragment and add the following code in each fragment's java file 
