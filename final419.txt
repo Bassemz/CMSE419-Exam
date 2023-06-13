@@ -11,7 +11,7 @@ in the fragment java code:
 - make the on create public and and comment setcontentview
 - right click and generate ->  a constructor
 - add onCreateView function by typing and auto completing just like button onset listeners
-- change the return super.oncreateview to return inflater.inflate(R.layout.activity_first_fragment i.e the fragments layout file)
+- change the return super.oncreateview to return inflater.inflate(R.layout.activity_first_fragment i.e the fragments layout file, container, false)
 in main activity:
 - define layouts (tab and frame) and fragment then set fragment to null(Fragment fragment=null;)
 - add tabs to tab layout
@@ -20,3 +20,6 @@ in main activity:
 
 
 --- buttens and such can be defined normally and used in the oncreate function of the fragment  
+--- for context when using toast and such, use getContext instead of this. e.g Toast.makeText(getContext(), "text", Toast.LENGTH_SHORT).show();
+--- put return statement at the end of operations
+--- also defining the return stetment inflater.inflate(R.layout.activity_first_fragment i.e the fragments layout file, container, false) as a view at the start of the oncreate function is very convenient
