@@ -425,35 +425,31 @@ public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMen
 // add tablayout from "Containers" and ins  ide it add as many TabItems as the fragments
 // add a framelayout under tablayout
 // create a separate activity for each fragment and add the following code in each fragment's java file 
-public class FormFrag extends Fragment { //extends Fragment
-    public FormFrag() { //create it by right clicking -> generate
+    public class FormFrag extends Fragment { //extends Fragment
+        public FormFrag() { //create it by right clicking -> generate
+        }
+
+
+        //define the components
+
+        View view;
+        @Nullable
+        @Override
+        public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+            
+            view = inflater.inflate(R.layout.activity_form_frag , container, false); //name of the xml file of the fragment
+
+            //logic for fragment tab
+
+
+            
+
+            return view;
+        }
     }
-
-
-    //define the components
-
-    View view;
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        
-        view = inflater.inflate(R.layout.activity_form_frag , container, false); //name of the xml file of the fragment
-
-        //logic for fragment tab
-
-
-        
-
-        return view;
-    }
-}
-<<<<<<< HEAD
-// in main activity in onCreate
-=======
 
 //setting default fragment 
-//in main activity:
->>>>>>> 7c2a6945ddb0f51ebc1e78415da94b2637b66bd6
+//in main activity (inside onCreate)
 Fragment fragments = null;
 fragments = new firstFragment();
 FragmentManager fManager = getSupportFragmentManager();
