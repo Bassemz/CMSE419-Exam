@@ -23,3 +23,6 @@ in main activity:
 --- for context when using toast and such, use getContext instead of this. e.g Toast.makeText(getContext(), "text", Toast.LENGTH_SHORT).show();
 --- put return statement at the end of operations
 --- also defining the return stetment inflater.inflate(R.layout.activity_first_fragment i.e the fragments layout file, container, false) as a view at the start of the oncreate function is very convenient
+--- Using Database with fragments:  
+    db=new MyDB(getContext());
+

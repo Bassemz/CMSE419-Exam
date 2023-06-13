@@ -503,3 +503,5 @@ Tablayout.Tab firstTab = tl_tablayout.newTab(); //assuming you defined a tablayo
 firstTab.setText("Tab name goes here");
 tl.tablayout.addTab(firstTab);
 
+// Using Database (DB) with fragments:
+ db=new MyDB(getContext());
