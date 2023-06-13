@@ -442,7 +442,9 @@ public class firstFragment extends Fragment { //extends Fragment
         return inflater.inflate(R.layout.activity_first_fragment* , container, false); *//name of the xml file of the fragment
     }
 }
-// in main activity:
+
+//setting default fragment 
+//in main activity:
 Fragment fragments = null;
 fragments = new firstFragment();
 FragmentManager fManager = getSupportFragmentManager();
@@ -461,9 +463,9 @@ tl_tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 @Override
 public void onTabSelected(TabLayout.Tab tab) {
     int pos = tab.getPosition();
-    switch (pos){
+    switch(pos){
         case 0:
-            fragments = new firstFragment();
+            fragments = new firstFragment(); //fragment name
             break;//constructor of first fragment
         case 1:
             fragments = new secondFragment();
@@ -478,7 +480,7 @@ public void onTabSelected(TabLayout.Tab tab) {
     // to control "transactions" which are the activites in the fragments
     FragmentTransaction fTransaction = fManager.beginTransaction();
 
-    // replacing the framelayout view with the fragment object we created in switch()
+    // replacing the framelayout(fr) view with the fragment object we created in switch()
     fTransaction.replace(R.id.fr, fragments);
     //remove fragment after usage
     fTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
@@ -496,5 +498,8 @@ public void onTabReselected(TabLayout.Tab tab) {
 
 }
 });
-
+// adding tab to tablayout
+Tablayout.Tab firstTab = tl_tablayout.newTab(); //assuming you defined a tablayout called tl_tablayout 
+firstTab.setText("Tab name goes here");
+tl.tablayout.addTab(firstTab);
 
