@@ -501,7 +501,7 @@ public void onTabReselected(TabLayout.Tab tab) {
 // adding tab to tablayout
 Tablayout.Tab firstTab = tl_tablayout.newTab(); //assuming you defined a tablayout called tl_tablayout 
 firstTab.setText("Tab name goes here");
-tl.tablayout.addTab(firstTab);
+tl_tablayout.addTab(firstTab);
 
 // Using Database (DB) with fragments:
  db=new MyDB(getContext());
