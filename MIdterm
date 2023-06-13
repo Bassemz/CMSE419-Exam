@@ -447,7 +447,13 @@ public class FormFrag extends Fragment { //extends Fragment
         return view;
     }
 }
+<<<<<<< HEAD
 // in main activity in onCreate
+=======
+
+//setting default fragment 
+//in main activity:
+>>>>>>> 7c2a6945ddb0f51ebc1e78415da94b2637b66bd6
 Fragment fragments = null;
 fragments = new firstFragment();
 FragmentManager fManager = getSupportFragmentManager();
@@ -466,9 +472,9 @@ tl_tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 @Override
 public void onTabSelected(TabLayout.Tab tab) {
     int pos = tab.getPosition();
-    switch (pos){
+    switch(pos){
         case 0:
-            fragments = new firstFragment();
+            fragments = new firstFragment(); //fragment name
             break;//constructor of first fragment
         case 1:
             fragments = new secondFragment();
@@ -483,7 +489,7 @@ public void onTabSelected(TabLayout.Tab tab) {
     // to control "transactions" which are the activites in the fragments
     FragmentTransaction fTransaction = fManager.beginTransaction();
 
-    // replacing the framelayout view with the fragment object we created in switch()
+    // replacing the framelayout(fr) view with the fragment object we created in switch()
     fTransaction.replace(R.id.fr, fragments);
     //remove fragment after usage
     fTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
@@ -501,5 +507,10 @@ public void onTabReselected(TabLayout.Tab tab) {
 
 }
 });
+// adding tab to tablayout
+Tablayout.Tab firstTab = tl_tablayout.newTab(); //assuming you defined a tablayout called tl_tablayout 
+firstTab.setText("Tab name goes here");
+tl_tablayout.addTab(firstTab);
 
-
+// Using Database (DB) with fragments:
+ db=new MyDB(getContext());

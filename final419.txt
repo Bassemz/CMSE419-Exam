@@ -1,0 +1,28 @@
+fragment notes:
+. removing action bar is better to show tab view
+- better to change xml code in main activity from 'androidx.constraint....'(constrain layout) to linearlayout 
+- then add android:orientation="vertical" 
+- add tablayout, when design disappears, go to xml code and remove all tab items.
+- set tablayout gravity center and set id
+- add framelayout and set id
+- create activities for fragments
+in the fragment java code:
+- change extends appcompactactivty to extends fragment
+- make the on create public and and comment setcontentview
+- right click and generate ->  a constructor
+- add onCreateView function by typing and auto completing just like button onset listeners
+- change the return super.oncreateview to return inflater.inflate(R.layout.activity_first_fragment i.e the fragments layout file, container, false)
+in main activity:
+- define layouts (tab and frame) and fragment then set fragment to null(Fragment fragment=null;)
+- add tabs to tab layout
+- add listener for tablayout
+- then add a default fragment
+
+
+--- buttens and such can be defined normally and used in the oncreate function of the fragment  
+--- for context when using toast and such, use getContext instead of this. e.g Toast.makeText(getContext(), "text", Toast.LENGTH_SHORT).show();
+--- put return statement at the end of operations
+--- also defining the return stetment inflater.inflate(R.layout.activity_first_fragment i.e the fragments layout file, container, false) as a view at the start of the oncreate function is very convenient
+--- Using Database with fragments:  
+    db=new MyDB(getContext());
+
