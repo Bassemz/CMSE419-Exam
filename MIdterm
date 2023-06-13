@@ -254,6 +254,7 @@ try{
 // 1-Add the MyDB.java file to the project and modify it according to DB design 
 // 2-Usage: 
 //initialize db instance in the top of every file you will read/write to db
+//NOTE: DONNOT INTIALIZE DB OUTSIDE AN onClick listener
 MyDB DBHandler = new MyDB(this);
 // a- Reading from Database
 
@@ -317,7 +318,7 @@ MyDB DBHandler = new MyDB(this);
 //pop up menu
 // res folder -> create new Android Resource Directory -> inside it create new Menu Resource File (xml)
 // drag and drop menu and menu items to the newly created file and add IDs 
-// in mainActivity (inside onCreate)
+// in mainActivity (inside onCreate) 
     PopupMenu popup = new PopupMenu(MainActivity.this, componentName); //componentName is the component to which you are creating popup menu
     popup.getMenuInflater().inflate(R.menu.popupmenu, popup.getMenu());
 
@@ -346,7 +347,7 @@ MyDB DBHandler = new MyDB(this);
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        return false;
+                        return false;   
                     }
                 });
 
@@ -419,30 +420,34 @@ public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMen
 
 
 // fragments
-// in main xml, remove contraint layout and add a *orientation="vertical"* linear layout
-//tab layout should be at the top of the screen like an action bar so action bar should be removed
-// add tablayout from "Containers" and inside it add as many TabItems as the fragments
+// in main xml, remove contraint layout and add a *orientation="vertical"* linear layout(XML code tab not design)
+// tab layout should be at the top of the screen like an action bar so action bar should be removed
+// add tablayout from "Containers" and ins  ide it add as many TabItems as the fragments
 // add a framelayout under tablayout
 // create a separate activity for each fragment and add the following code in each fragment's java file 
-public class firstFragment extends Fragment { //extends Fragment
-    public firstFragment() { //create it by right clicking -> generate
+public class FormFrag extends Fragment { //extends Fragment
+    public FormFrag() { //create it by right clicking -> generate
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_first_fragment);
-    }
 
+    //define the components
+
+    View view;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        //return super.onCreateView(inflater, container, savedInstanceState);
+        
+        view = inflater.inflate(R.layout.activity_form_frag , container, false); //name of the xml file of the fragment
 
-        return inflater.inflate(R.layout.activity_first_fragment* , container, false); *//name of the xml file of the fragment
+        //logic for fragment tab
+
+
+        
+
+        return view;
     }
 }
-// in main activity:
+// in main activity in onCreate
 Fragment fragments = null;
 fragments = new firstFragment();
 FragmentManager fManager = getSupportFragmentManager();
